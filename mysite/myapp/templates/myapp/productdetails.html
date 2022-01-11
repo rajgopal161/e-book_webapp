@@ -1,0 +1,26 @@
+{% extends 'myapp/base.html' %}
+<html>
+    <head>
+        
+
+    </head>
+
+    <body>
+
+        {% block body %}
+        <h2> These are the details of the book you selected </h2> 
+        <img width="150" height="200" src="{{ book.image.url }}"> <br>
+        {{book.id}} <br>
+        {{book.Name}} <br>
+        {{book.Desc}} <br>
+        <h4> {{book.Price}} </h4> <br>
+        <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> Add to cart <br> </a>
+        {% endblock %}
+
+        
+        
+    </body>
+
+</html>
+
+<!-- <a href="{% url 'myapp:products/book/update/' book.Name %}">Update</a> -->
