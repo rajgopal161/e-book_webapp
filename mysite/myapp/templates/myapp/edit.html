@@ -1,7 +1,19 @@
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
-    {{ form.as_p}}
+{% extends 'myapp/base.html' %}
 
-    <input type="submit">
+<html>
+    <head>
+        
 
-</form>
+    </head>
+    <body>
+        {% block body %}
+        <form method="POST" enctype="multipart/form-data">
+         {% csrf_token %}
+         {{ form.as_p}}
+
+         <input type="submit">
+        </form>
+        {% endblock %}
+    </body>
+
+</html>
