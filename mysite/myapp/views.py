@@ -6,7 +6,7 @@ from .forms import BookForm
 # Create your views here.
 
 def index(request):
-    return HttpResponse("<h1>Welcome to my web page!!!</h1>")
+    return HttpResponse("<h1>Welcome to my web page!!!</h1> <a href=" "> Click Here <br> </a>")
 
 def products(request):
     book_list = Book.objects.all()

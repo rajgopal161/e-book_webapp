@@ -5,7 +5,7 @@ from myapp import views
 app_name = "myapp"
 
 urlpatterns = [
-    path('index/',views.index, name="index"),
+    path('',views.index, name="index"),
     path('products/',views.products, name="products"),
     path('products/book/<str:book_name>/', views.product_detail, name="proddetail"),
     path('products/add_book', views.add_book, name='add_book'),
