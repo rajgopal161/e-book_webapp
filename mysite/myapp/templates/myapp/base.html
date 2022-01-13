@@ -13,7 +13,17 @@
         <a class="navbar-brand" href="{% url 'myapp:products' %}">
         <img src="{% static 'myapp/booklist.svg' %}" width="40" height="40" class="d-inline-block align-top" alt="logo">
         E-Commerce Book Store
-        <a class="list-group-item" href="{% url 'myapp:products' %}"><i class="fa fa-home fa-fw" aria-hidden="true"></i>&nbsp; Home</a>
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <a  href="{% url 'myapp:products' %}"><i class="fa fa-home fa-fw" aria-hidden="false"></i>&nbsp; Home</a>
+
+        <!-- buttons for navigation bar 
+        <button class="btn"><i class="fa fa-home"></i> Home</button>
+        <button class="btn"><i class="fa fa-bars"></i> Menu</button>
+        <button class="btn"><i class="fa fa-trash"></i> Trash</button>
+        <button class="btn"><i class="fa fa-close"></i> Close</button>
+        <button class="btn"><i class="fa fa-folder"></i> Folder</button>
+        -->
         </a>
         </nav>
 
