@@ -1,10 +1,26 @@
-<form method="POST" enctype="multipart/form-data">
-    {% csrf_token %}
+{% extends 'myapp/base.html' %}
 
-    <input type="text" name="Name" id="Name" placeholder="Enter the book name">
-    <input type="text" name="Desc" id="Desc" placeholder="Enter the book descriptin">
-    <input type="number" name="Price" id="Price" placeholder="Enter the book price">
-    <input type="file" name="image" id="image"> <br> <br>
-    <input type="submit">
+ <html>
+     <head>
+         
+ 
+     </head>
+     <body>
+         {% block body %}
+ 
+ 
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
 
-</form>
+            <br> <input type="text" name="Name" id="Name" placeholder="Enter the book name" size="50"> <br> <br>
+            <input type="text" name="Desc" id="Desc" placeholder="Enter the book description" size="50" style="height:120px;"> <br> <br>
+            <input type="number" name="Price" id="Price" placeholder="Enter the book price"> <br> <br>
+            <input type="file" name="image" id="image"> <br> <br>
+            <input type="submit">
+
+        </form>
+
+        {% endblock %}
+    </body>
+
+</html>
