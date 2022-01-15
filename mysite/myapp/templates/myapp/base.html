@@ -13,10 +13,20 @@
         <a class="navbar-brand" href="{% url 'myapp:products' %}">
         <img src="{% static 'myapp/booklist.svg' %}" width="40" height="40" class="d-inline-block align-top" alt="logo">
         E-Commerce Book Store
+        <div class="topnav">
+            <a class="active" href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+            <input class="active" type="text" placeholder="Search..">
+            <a href=""><i class="fa fa-search" aria-hidden="false"></i> </a>
+        </div>
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <a  href="{% url 'myapp:products' %}"><i class="fa fa-home fa-fw" aria-hidden="false"></i>&nbsp; Home</a>
-
+        <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <a  href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a>
+            <a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i> Cart </a>
+            <a href=""><i class="fa fa-bars" aria-hidden="false"></i> </a>
+        </div>
         <!-- buttons for navigation bar 
         <button class="btn"><i class="fa fa-home"></i> Home</button>
         <button class="btn"><i class="fa fa-bars"></i> Menu</button>
