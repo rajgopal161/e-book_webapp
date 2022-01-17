@@ -13,3 +13,4 @@ class Book(models.Model):
     Desc = models.CharField(max_length=300)
     Price = models.IntegerField()
     image = models.ImageField(default="default.png", upload_to="book_images/")
+

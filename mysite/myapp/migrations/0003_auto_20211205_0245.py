@@ -16,3 +16,4 @@ class Migration(migrations.Migration):
             field=models.ImageField(default='default.png', upload_to='book_images/'),
         ),
     ]
+
