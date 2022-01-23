@@ -3,6 +3,14 @@
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+        <link rel="stylesheet" href="{% static 'myapp/navstyle.css' %}">
+
+        <!--
+        <meta charset="utf-8">
+        <title>Responsive NavBar</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+        -->
 
     </head>
 
@@ -17,8 +25,11 @@
             <a class="active" href=""></a>
             <a href=""></a>
             <a href=""></a>
-            <input class="active" type="text" placeholder="Search..">
-            <a href=""><i class="fa fa-search" aria-hidden="false"></i> </a>
+            <form method="GET" enctype="multipart/form-data">
+                <input type="text" name='Name' id="Name" placeholder="Search.." size="20">
+                <a href=" {% url 'myapp:products' %} "><i class="fa fa-search" aria-hidden="false"></i> </a>
+            </form>
+            <!-- <input type="text" placeholder="Search.."> -->
         </div>
 
         <div>
@@ -27,6 +38,48 @@
             <a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i> Cart </a>
             <a href=""><i class="fa fa-bars" aria-hidden="false"></i> </a>
         </div>
+        </a>
+        </nav>
+        <!--
+        <div>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <a  href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a>
+            <a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i> Cart </a>
+            <a href=""><i class="fa fa-bars" aria-hidden="false"></i> </a>
+            <div>
+                <input type="checkbox" id="check">
+                <label for="check">
+                    <i class="fas fa-bars" id="btn"></i>
+                    <i class="fas fa-times" id="cancel"></i>
+                </label>
+                <div class="sidebar">
+                    <header>E-Commerce Book Store</header>
+                    <ul>
+                        <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
+                        <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
+                        <li><a href="#"><i class="fa fa-stream"></i>Overview</a></li>
+                        <li><a href="#"><i class="fa fa-sliders-h"></i>Services</a></li>
+                        <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
+                    </ul>
+                </div>
+
+                <section></section>
+            </div>
+        </div>
+        -->
+
+        
+        <!--  
+        <div class="rightnav">
+            <ul>
+                <li><a class="active" href=""> Home </a></li>
+                <li><a href=""> Settings </a></li>
+                <li><a href=""> Profile </a></li>
+                <li><a href=""> Logout </a></li>
+                <li><a href=""> ContactUs </a></li>
+            </ul>
+        -->
+
         <!-- buttons for navigation bar 
         <button class="btn"><i class="fa fa-home"></i> Home</button>
         <button class="btn"><i class="fa fa-bars"></i> Menu</button>
@@ -34,8 +87,7 @@
         <button class="btn"><i class="fa fa-close"></i> Close</button>
         <button class="btn"><i class="fa fa-folder"></i> Folder</button>
         -->
-        </a>
-        </nav>
+        </div>
 
         
         {% block body %}

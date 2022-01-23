@@ -51,3 +51,21 @@ def delete_book(request, name):
         book.delete()
         return redirect('/products/')
     return render(request,'myapp/delete.html')
+
+#code not working for search
+
+def product_search(request, book_name):
+    book_list = Book.objects.all()
+    
+    context = {
+        'book_list': book_list
+    }
+    if book_name in book_list == True:
+        return render(request,'myapp/products.html', context)
+    else:
+        return HttpResponse("<h1>Book not found!!!</h1>")
+
+    
+    return render(request,'myapp/base.html', context)
+
+#code not working for search

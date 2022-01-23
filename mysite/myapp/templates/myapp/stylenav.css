@@ -1,8 +1,7 @@
-
 @import url('https://fonts.googleapis.com/');
 
 body{
-    background-color:lightgray;
+    
     font-family: 'Roboto', sans-serif;
     
 }
@@ -111,5 +110,3 @@ section{
     height: 100vh;
     transition: all .5s;
 }
-
-
