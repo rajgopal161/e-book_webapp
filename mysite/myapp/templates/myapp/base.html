@@ -1,9 +1,11 @@
 {% load static %}
 <html>
     <head>
+        
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-        <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
-        <link rel="stylesheet" href="{% static 'myapp/navstyle.css' %}">
+        <link rel="stylesheet" href="{% static 'myapp/style.css' %}"/>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <!--
         <meta charset="utf-8">
@@ -32,8 +34,8 @@
             <!-- <input type="text" placeholder="Search.."> -->
         </div>
 
-        <div>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div class="menu_bar">
+            
             <a  href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a>
             <a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i> Cart </a>
             <a href=""><i class="fa fa-bars" aria-hidden="false"></i> </a>

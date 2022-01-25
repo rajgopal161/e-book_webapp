@@ -1,10 +1,9 @@
-
-@import url('https://fonts.googleapis.com/');
-
 body{
-    background-color:lightgray;
-    font-family: 'Roboto', sans-serif;
-    
+    background-color:black; 
+}
+
+.menu_bar a{
+    color: black;
 }
 
 *{

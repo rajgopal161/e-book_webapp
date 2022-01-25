@@ -13,6 +13,7 @@ body{
     text-decoration: none;
 }
 
+
 .sidebar{
     position: fixed;
     right: -250;
@@ -109,4 +110,8 @@ section{
     background-size: cover;
     height: 100vh;
     transition: all .5s;
+}
+
+.menu_bar a{
+    color: black;
 }
