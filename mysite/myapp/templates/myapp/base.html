@@ -23,24 +23,35 @@
         <a class="navbar-brand" href="{% url 'myapp:products' %}">
         <img src="{% static 'myapp/booklist.svg' %}" width="40" height="40" class="d-inline-block align-top" alt="logo">
         E-Commerce Book Store
+        </a>
         <div class="topnav">
             <a class="active" href=""></a>
             <a href=""></a>
             <a href=""></a>
-            <form method="GET" enctype="multipart/form-data">
-                <input type="text" name='Name' id="Name" placeholder="Search.." size="20">
+            <form name="searchform" method="GET">
+                <input type="text" name='search' id="Name" placeholder="Search.." size="20">
                 <a href=" {% url 'myapp:products' %} "><i class="fa fa-search" aria-hidden="false"></i> </a>
             </form>
             <!-- <input type="text" placeholder="Search.."> -->
         </div>
 
         <div class="menu_bar">
-            
-            <a  href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a>
-            <a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i> Cart </a>
-            <a href=""><i class="fa fa-bars" aria-hidden="false"></i> </a>
+            <ul>
+                <li class="activebar"><a href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a> </li>
+                <li><a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i>Cart</a></li>
+                <li><a href=""><i class="fa fa-bars" aria-hidden="false"></i>More </a> 
+                    <div class="sub-menu">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
+                            <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
+                            <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
+                        </ul>
+                
+                    </div>
+                </li>
+            </ul>
         </div>
-        </a>
+        
         </nav>
         <!--
         <div>

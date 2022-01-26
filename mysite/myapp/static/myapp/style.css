@@ -1,9 +1,5 @@
 body{
-    background-color:black; 
-}
-
-.menu_bar a{
-    color: black;
+    background-color:lightgray; 
 }
 
 *{
@@ -11,104 +7,62 @@ body{
     padding: 0;
     list-style: none;
     text-decoration: none;
-}
-
-.sidebar{
-    position: fixed;
-    right: -250;
-    width: 250px;
-    height: 100%;
-    background: #042331;
-    transition: all .5s ease;
-}
-
-.sidebar header{
-    font-size: 22px;
-    color: white;
-    text-align: center;
-    line-height: 70px;
-    background: #063146;
-    user-select: none;
-}
-
-.sidebar ul a{
-    display: block;
-    height: 100%;
-    width: 100%;
-    line-height: 65px;
-    font-size: 16px;
-    color: white;
-    padding-right: 40px;
     box-sizing: border-box;
-    border-top: px solid rgba(255, 255, 255, .1);
-    border-bottom: 1px solid black;
 }
 
-ul li:hover a{
-    padding-right: 50px;
+.menu_bar a{
+    color: lightgray;
 }
 
-.sidebar ul a i{
-    margin-left: 16px;
-
+.fa-search{
+    color: lightgray;
 }
 
-#check{
-    display: none;
+.menu_bar ul{
+    display: inline-flex;
+    list-style: none;
+    
 }
 
-label #btn, label #cancel{
-    position: absolute;
-    cursor: pointer;
-    background: #042331;
+.menu_bar ul li{
+    width: 75px;   
+}
+
+.activebar ,.menu_bar ul li:hover{
     border-radius: 3px;
 }
 
-label #btn{
-    right: 40px;
-    top: 25px;
-    font-size: 35px;
-    color: white;
-    padding: 6px 12px;
-    transition: all .5s;
+.menu_bar .fa{
+    margin-right: 8px;
 }
 
-label #cancel{
-    z-index: 1111;
-    right: 195px;
-    top: 17px;
-    font-size: 30px;
-    color: #0a5275;
-    padding: 4px 9px;
-    transition: all .5s ease;
+.sub-menu{
+    display: none;
 }
 
-#check:checked ~ .sidebar{
-    right: 0;
+
+.menu_bar ul li:hover .sub-menu{
+    display: block;
+    position: absolute;
+    background: rgb(55, 59, 59);
+    margin-top: 15px;
+    margin-left: -20px;
 }
 
-#check:checked ~ label #btn{
-    right: 250px;
-    opacity: 0;
-    pointer-events: none;
-}
-
-#check:checked ~ label #cancel{
-    right: 195px;
+.menu_bar ul li:hover .sub-menu ul{
+    display: block;
     
 }
 
-#check:checked ~ section{
-    margin-right: 250px;
-    
+.menu_bar ul li:hover .sub-menu ul li{
+    width: 130px;
+    padding: 8px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
 }
 
-section{
-    background: url(monk.jpg) no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    transition: all .5s;
+.menu_bar ul li:hover .sub-menu ul li:last-child{
+    border-bottom: none;
 }
-
-

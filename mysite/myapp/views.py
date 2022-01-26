@@ -69,3 +69,14 @@ def product_search(request, book_name):
     return render(request,'myapp/base.html', context)
 
 #code not working for search
+
+def search(request):        
+    if request.method == 'GET': # this will be GET now      
+        book_name =  request.GET.get('search') # do some research what it does       
+        try:
+            status = Book.objects.filter(bookname__icontains=book_name) # filter returns a list so you might consider skip except part
+        except Book.DoesNotExist:
+            status = None
+        return render(request,'myapp/search.html',{"books":status})
+    else:
+        return render(request,'myapp/search.html',{})

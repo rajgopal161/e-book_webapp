@@ -112,6 +112,11 @@ section{
     transition: all .5s;
 }
 
+.menu_bar{
+    color: black;
+    width: 25px;
+}
+
 .menu_bar a{
     color: black;
 }

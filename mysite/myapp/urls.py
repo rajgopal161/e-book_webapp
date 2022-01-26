@@ -12,5 +12,5 @@ urlpatterns = [
     path('products/add_book', views.add_book, name='add_book'),
     path('products/book/<str:book_name>/update/', views.book_update, name='update_name'),
     path('products/book/<str:name>/delete/', views.delete_book, name='delete_book'),
-    path('products/book/<str:book_name>', views.product_search, name="prodsearch")
+    path('products/book/search/<str:name>', views.search, name="search")
 ]
