@@ -10,6 +10,12 @@ body{
     box-sizing: border-box;
 }
 
+form button{
+    border:0;
+    background:none;
+    /*And other css to remove the default button property */    
+}
+
 .menu_bar a{
     color: lightgray;
 }
@@ -20,8 +26,7 @@ body{
 
 .menu_bar ul{
     display: inline-flex;
-    list-style: none;
-    
+    list-style: none;   
 }
 
 .menu_bar ul li{
@@ -29,7 +34,7 @@ body{
 }
 
 .activebar ,.menu_bar ul li:hover{
-    border-radius: 3px;
+    border-radius: 3px;  
 }
 
 .menu_bar .fa{
@@ -66,3 +71,4 @@ body{
 .menu_bar ul li:hover .sub-menu ul li:last-child{
     border-bottom: none;
 }
+

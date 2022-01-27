@@ -28,11 +28,13 @@
             <a class="active" href=""></a>
             <a href=""></a>
             <a href=""></a>
-            <form name="searchform" method="GET">
-                <input type="text" name='search' id="Name" placeholder="Search.." size="20">
-                <a href=" {% url 'myapp:products' %} "><i class="fa fa-search" aria-hidden="false"></i> </a>
+            <form action='search'> 
+                <input type="text" name='search' placeholder="Search.." size="20">
+                <button type="submit"><i class="fa fa-search"></i></button>
             </form>
-            <!-- <input type="text" placeholder="Search.."> -->
+            
+             <!-- <a class="fa fa-search" href="{% url 'myapp:search' %}"> </a>  -->
+             <!-- <input type="text" placeholder="Search.."> -->
         </div>
 
         <div class="menu_bar">

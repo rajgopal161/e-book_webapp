@@ -1,5 +1,7 @@
+from tokenize import Name
 from django.shortcuts import redirect, render, resolve_url
 from django.http import HttpResponse
+from django.template import context
 from .models import Book
 from .forms import BookForm
 
@@ -52,31 +54,31 @@ def delete_book(request, name):
         return redirect('/products/')
     return render(request,'myapp/delete.html')
 
-#code not working for search
 
-def product_search(request, book_name):
-    book_list = Book.objects.all()
-    
-    context = {
-        'book_list': book_list
-    }
-    if book_name in book_list == True:
-        return render(request,'myapp/products.html', context)
-    else:
-        return HttpResponse("<h1>Book not found!!!</h1>")
 
-    
-    return render(request,'myapp/base.html', context)
 
-#code not working for search
 
-def search(request):        
-    if request.method == 'GET': # this will be GET now      
-        book_name =  request.GET.get('search') # do some research what it does       
+def searchhh(request):
+    book_name = request.GET.get('search')
+    book = Book.objects.get(Name=book_name)
+    context={
+        'book': book
+    }  
+    return render(request,'myapp/search.html', context)
+
+
+def search(request):
+    if request.method == 'GET':
+        book_name = request.GET.get('search')
         try:
-            status = Book.objects.filter(bookname__icontains=book_name) # filter returns a list so you might consider skip except part
+            book = Book.objects.get(Name=book_name)
+            context={
+                'book': book
+            }
         except Book.DoesNotExist:
-            status = None
-        return render(request,'myapp/search.html',{"books":status})
+            context=None  
+            
+        return render(request,'myapp/search.html', context)
     else:
         return render(request,'myapp/search.html',{})
+       

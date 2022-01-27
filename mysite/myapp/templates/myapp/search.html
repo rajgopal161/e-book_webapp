@@ -6,20 +6,30 @@
 
     </head>
     <body>
-        {% block body %}
-        {% if books %}
-        {% for each_book in books %} // books is list here so pick each element using for loop 
-            <div class="card-body">
-                <a href="{% url 'myapp:products' %}"></a>
-                <img width="100" height="350" src="{{book.image.url}}" class="card-img-top" alt="">
-                <p style="font-size: 16px; font-family: Arial" class="card-title">{{book.Name}}</p>
-                <p style="font-size: 18px;" class="card-text"><b>₹{{book.Price}}/-</b></p>
-                <a class="btn btn-warning" href="{% url 'myapp:search' book.Name %}"> View Details <br> </a>
-            
-            </div> 
-        {% endfor %}
-        {% endif %}
 
+        
+        
+        
+        {% block body %}
+
+        {% if book != book.Name %}
+
+        <div class="col-md-3">
+            <div class="card">
+                <img width="100" height="350" src="{{book.image.url}}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <p style="font-size: 16px; font-family: Arial" class="card-title">{{book.Name}}</p>
+                    <p style="font-size: 18px;" class="card-text"><b>₹{{book.Price}}/-</b></p>
+                    <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> View Details <br> </a>
+                    
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <h2> Book Not Found!!!</h2> 
+        
+        {% endif %}
         {% endblock %}
     </body>
 
