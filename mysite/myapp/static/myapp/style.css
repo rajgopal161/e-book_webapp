@@ -59,6 +59,11 @@ form button{
     
 }
 
+.menu_bar ul li:active .sub-menu ul{
+    display: block;
+    
+}
+
 .menu_bar ul li:hover .sub-menu ul li{
     width: 130px;
     padding: 8px;
