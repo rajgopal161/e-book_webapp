@@ -1,15 +1,19 @@
-
+{% load static %}
 
 <html>
     <head>
-        
+        <link rel="stylesheet" href="{% static 'myapp/styleLR.css' %}"/>
 
     </head>
     <body>
-        
-        <h1>Welcome to my web page!!!</h1> <a href="register"> Click Here to Register <br> </a>
-        <a href="login"> Click Here to Login <br>
-        
+        {% block body %}
+        <div id="indexx">
+            <h1>Welcome to E-Commerce web app!!!</h1> 
+            <button ><a href="register"> Click here to SignUp</a></button> <br> <br>
+            <button ><a href="login"> Click here to SignIn </a></button> <br>
+        </div>
+        {% endblock %}
+
     </body>
 
 </html>
