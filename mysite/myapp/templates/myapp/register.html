@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        
+
         
 
     </head>
@@ -36,6 +36,12 @@
                     <a href="{% url 'account:login' %}"> Go and log in </a>
                 </p>
             </form>
+        </div>
+
+        <div class="ErrorMessages">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
         </div>
                 
         {% endblock %}    

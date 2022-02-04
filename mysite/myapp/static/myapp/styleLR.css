@@ -213,5 +213,8 @@ p.change_link a:active{
 	border-radius: 5px;
 }
 
+div.ErrorMessages{
+	text-align: center;
+}
 
 
