@@ -44,14 +44,17 @@
                 <li><a href=""><i class="fa fa-bars" aria-hidden="false"></i>More </a> 
                     <div class="sub-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user-circle"></i>Profile</a></li>
+                            
                             <li><a href="#"><i class="fa fa-gear"></i>Settings</a></li>
                             <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                             <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
-                            <li><a href="#"><i class="fa fa-sign-out"></i>SignOut</a></li>
-                            <li><a href="#"><i class="fa fa-sign-in"></i>SignIn</a></li>
-                            
+                            {% if user.is_authenticated %}
+                            <li><a href="#"><i class="fa fa-user-circle"></i>Hello, {{user.first_name}}</a></li>
+                            <li><a href="logout"><i class="fa fa-sign-out"></i>SignOut</a></li>
+                            {% else %}
+                            <li><a href="{% url 'account:login' %}"><i class="fa fa-sign-in"></i>SignIn</a></li>
+                            {% endif %}
                         </ul>
                 
                     </div>
@@ -108,7 +111,7 @@
         <button class="btn"><i class="fa fa-folder"></i> Folder</button>
         -->
         </div>
-
+    
         
         {% block body %}
 

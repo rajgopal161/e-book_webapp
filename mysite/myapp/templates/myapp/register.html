@@ -13,6 +13,10 @@
             {% csrf_token %}
                 <h1> Sign up </h1> 
                 <p> 
+                    <label for="first_name" class="fname" data-icon="u">Your first_name</label> <br>
+                    <input id="first_name" name="first_name" required="required" type="text" placeholder="myfirstname" />
+                </p>
+                <p> 
                     <label for="username" class="uname" data-icon="u">Your username</label> <br>
                     <input id="username" name="username" required="required" type="text" placeholder="mysuperusername690" />
                 </p>

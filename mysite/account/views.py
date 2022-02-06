@@ -5,6 +5,8 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from .models import UserAuth
 from myapp.forms import UserAuthForm
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout
 
 # Create your views here.
 
@@ -17,22 +19,23 @@ def register(request):
 
 def register_user(request):
     if request.method == "POST":
+        first_name = request.POST['first_name']
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         password_confirm = request.POST['password_confirm']
 
         if password == password_confirm:
-            if UserAuth.objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
                 print("Username Taken")
                 messages.info(request,"Username already Taken")
                 return redirect('/register/')
-            elif UserAuth.objects.filter(email=email).exists():
+            elif User.objects.filter(email=email).exists():
                 print("Email Taken")
                 messages.info(request,"Email already exist")
                 return redirect('/register/')
             else:
-                user = UserAuth(username=username, email=email, password=password)
+                user = User.objects.create_user(first_name=first_name, username=username, email=email, password=password)
                 user.save();
                 print("user created")
                 messages.info(request,"Registered Succesfully, Now login")
@@ -46,4 +49,27 @@ def register_user(request):
         
 
 def login(request):
+    
     return render(request,'myapp/login.html')
+    
+
+def loginuser(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request)
+            return redirect('/products/')
+        
+        else:
+            messages.info(request,"Invalid Credentials")
+            return redirect('/login/')
+
+def logout(request):
+    
+    logout(request)
+    return redirect('/login/')
