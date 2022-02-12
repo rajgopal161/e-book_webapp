@@ -2,7 +2,7 @@ from email import message
 import re
 from django.contrib import messages
 from django.shortcuts import redirect, render
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 from .models import UserAuth
 from myapp.forms import UserAuthForm
 from django.contrib.auth.models import User
@@ -48,9 +48,27 @@ def register_user(request):
         
         
 
-def login(request):
+def loginu(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            print("Logged in Succesfully!!")
+            
+            return redirect('/products/')
+        
+        else:
+            messages.info(request,"Invalid Credentials")
+            return redirect('/login/')
+    elif request.method== 'GET':
+        context={}
     
-    return render(request,'myapp/login.html')
+        return render(request,'myapp/login.html', context)
     
 
 def loginuser(request):
@@ -62,14 +80,16 @@ def loginuser(request):
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
-            login(request)
+            login(request, user)
+            print("Logged in Succesfully!!")
+            print(username)
             return redirect('/products/')
         
         else:
             messages.info(request,"Invalid Credentials")
             return redirect('/login/')
 
-def logout(request):
+def logoutu(request):
     
     logout(request)
     return redirect('/login/')

@@ -1,0 +1,6 @@
+{% if request.user.is_authenticated %}
+Hello, {{username}}
+<li><a href="logout"><i class="fa fa-sign-out"></i>SignOut</a></li>
+{% else %}
+<li><a href="{% url 'account:login' %}"><i class="fa fa-sign-in"></i>SignIn</a></li>
+{% endif %}

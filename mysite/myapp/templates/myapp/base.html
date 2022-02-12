@@ -36,22 +36,25 @@
              <!-- <a class="fa fa-search" href="{% url 'myapp:search' %}"> </a>  -->
              <!-- <input type="text" placeholder="Search.."> -->
         </div>
-
+        <div class="usrdsply">
+        Hello, {{request.user.first_name}}
+        </div>
         <div class="menu_bar">
             <ul>
-                <li class="activebar"><a href="myapp/products"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a> </li>
+                <li class="activebar"><a href="{% url 'myapp:products' %}"><i  class="fa fa-home fa-fw" aria-hidden="false"></i>Home </a> </li>
                 <li><a href=""><i class="fa fa-shopping-cart fa-fe" aria-hidden="false"></i>Cart</a></li>
                 <li><a href=""><i class="fa fa-bars" aria-hidden="false"></i>More </a> 
                     <div class="sub-menu">
                         <ul>
                             
-                            <li><a href="#"><i class="fa fa-gear"></i>Settings</a></li>
+                            
                             <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
                             <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
                             <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
-                            {% if user.is_authenticated %}
-                            <li><a href="#"><i class="fa fa-user-circle"></i>Hello, {{user.first_name}}</a></li>
-                            <li><a href="logout"><i class="fa fa-sign-out"></i>SignOut</a></li>
+                            {% if request.user.is_authenticated %}
+                            <li><a href="#"><i class="fa fa-user-circle"></i>{{request.user}}</a></li>
+                            <li><a href="#"><i class="fa fa-gear"></i>Settings</a></li>
+                            <li><a href="{% url 'account:logout' %}"><i class="fa fa-sign-out"></i>SignOut</a></li>
                             {% else %}
                             <li><a href="{% url 'account:login' %}"><i class="fa fa-sign-in"></i>SignIn</a></li>
                             {% endif %}
@@ -110,8 +113,8 @@
         <button class="btn"><i class="fa fa-close"></i> Close</button>
         <button class="btn"><i class="fa fa-folder"></i> Folder</button>
         -->
-        </div>
-    
+        
+        
         
         {% block body %}
 
