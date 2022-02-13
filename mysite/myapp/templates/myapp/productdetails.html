@@ -8,14 +8,17 @@
     <body>
 
         {% block body %}
-        <h2> These are the details of the book you selected </h2> 
-        <img width="150" height="200" src="{{ book.image.url }}"> <br>
-        
-        Book Name : {{book.Name}} <br>
-        Book Desciption : {{book.Desc}} <br>
-        Book Price : <h4> ₹{{book.Price}}/- </h4> <br>
+        <div>
+        <h4> These are the details of the book you selected </h4> 
+        <img width="300" height="400" src="{{ book.image.url }}"> <br>
+        </div>
+        <div id="bookdtls">
+        <b>Book Name : </b> {{book.Name}} <br> <br>
+        <b>Book Desciption : </b> {{book.Desc}} <br> <br>
+        <b>Price : </b> <h4> ₹{{book.Price}}/- </h4> <br> <br>
         <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> Add to cart <br> </a>
         <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> BuyNow <br> </a>
+        </div>
         {% endblock %}
 
         

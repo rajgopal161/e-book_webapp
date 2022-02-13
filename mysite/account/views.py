@@ -7,6 +7,8 @@ from .models import UserAuth
 from myapp.forms import UserAuthForm
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.conf import settings
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -36,6 +38,17 @@ def register_user(request):
                 return redirect('/register/')
             else:
                 user = User.objects.create_user(first_name=first_name, username=username, email=email, password=password)
+                
+                
+                #Sending email after successful registration.
+
+                # subject = 'welcome to E-commerce Book Store'
+                # message = f'Hi {user.username}, thank you for registering with E-commerce Book Store'
+                # email_from = settings.EMAIL_HOST_USER
+                # recipient_list = [user.email, ]
+                # send_mail( subject, message, email_from, recipient_list )
+                # print("Email Sent Succesfully!!")
+
                 user.save();
                 print("user created")
                 messages.info(request,"Registered Succesfully, Now login")
