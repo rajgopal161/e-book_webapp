@@ -1,0 +1,17 @@
+{% extends 'myapp/base.html' %}
+
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        {% block body %}
+        <br>
+        <b>FirstName : </b> {{request.user.first_name}} <br> <br>
+        <b>UserName  : </b> {{request.user.username}} <br> <br>
+        <b>UserEmail : </b> {{request.user.email}} <br> <br>
+        {% endblock %}
+    </body>
+
+</html>

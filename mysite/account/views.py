@@ -1,5 +1,6 @@
 from email import message
 import re
+from urllib import request
 from django.contrib import messages
 from django.shortcuts import redirect, render
 from django.http import HttpResponseRedirect
@@ -42,8 +43,8 @@ def register_user(request):
                 
                 #Sending email after successful registration.
 
-                # subject = 'welcome to E-commerce Book Store'
-                # message = f'Hi {user.username}, thank you for registering with E-commerce Book Store'
+                # subject = 'Welcome to E-commerce Book Store'
+                # message = f'Hi {user.username}, Thank You for registering with E-commerce Book Store'
                 # email_from = settings.EMAIL_HOST_USER
                 # recipient_list = [user.email, ]
                 # send_mail( subject, message, email_from, recipient_list )
@@ -106,3 +107,9 @@ def logoutu(request):
     
     logout(request)
     return redirect('/login/')
+
+def userdtls(request):
+    return render(request, 'myapp/user_details.html')
+
+def contactus(request):
+    return render(request, 'myapp/contactus.html')

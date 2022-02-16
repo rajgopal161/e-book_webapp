@@ -48,16 +48,18 @@
                         <ul>
                             
                             
-                            <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i>Contact</a></li>
-                            <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
+                            
                             {% if request.user.is_authenticated %}
-                            <li><a href="#"><i class="fa fa-user-circle"></i>{{request.user}}</a></li>
+                            <li><a href="{% url 'account:user_details' %}"><i class="fa fa-user-circle"></i>{{request.user}}</a></li>
                             <li><a href="#"><i class="fa fa-gear"></i>Settings</a></li>
+                            <li><a href="#"><i class="fa fa-qrcode"></i>Dashboard</a></li>
                             <li><a href="{% url 'account:logout' %}"><i class="fa fa-sign-out"></i>SignOut</a></li>
                             {% else %}
                             <li><a href="{% url 'account:login' %}"><i class="fa fa-sign-in"></i>SignIn</a></li>
                             {% endif %}
+                            <li><a href="#"><i class="fa fa-link"></i>Shortcuts</a></li>
+                            <li><a href="{% url 'account:contactus' %}"><i class="fa fa-envelope"></i>Contact</a></li>
+                            
                         </ul>
                 
                     </div>
