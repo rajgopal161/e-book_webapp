@@ -11,6 +11,7 @@ def index(request):
     return HttpResponse("<h1>Welcome to my web page!!!</h1> <a href=" 'products' "> Click Here <br> </a>")
 
 def products(request):
+    
     book_list = Book.objects.all()
     context = {
         'book_list': book_list

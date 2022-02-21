@@ -63,26 +63,26 @@ def register_user(request):
         
 
 def loginu(request):
-    if request.method == 'POST':
-        username = request.POST['username']
+    # if request.method == 'POST':
+    #     username = request.POST['username']
         
-        password = request.POST['password']
+    #     password = request.POST['password']
 
-        user = authenticate(request, username=username, password=password)
+    #     user = authenticate(request, username=username, password=password)
 
-        if user is not None:
-            login(request, user)
-            print("Logged in Succesfully!!")
+    #     if user is not None:
+    #         login(request, user)
+    #         print("Logged in Succesfully!!")
             
-            return redirect('/products/')
+    #         return redirect('/products/')
         
-        else:
-            messages.info(request,"Invalid Credentials")
-            return redirect('/login/')
-    elif request.method== 'GET':
-        context={}
+    #     else:
+    #         messages.info(request,"Invalid Credentials")
+    #         return redirect('/login/')
+    if request.method== 'GET':
+        
     
-        return render(request,'myapp/login.html', context)
+        return render(request,'myapp/login.html')
     
 
 def loginuser(request):
@@ -95,8 +95,12 @@ def loginuser(request):
 
         if user is not None:
             login(request, user)
+            
+            request.session['user_id'] = request.user.id
+            request.session['email'] = request.user.email
+
             print("Logged in Succesfully!!")
-            print(username)
+            print("You are : ", request.session.get('email'))
             return redirect('/products/')
         
         else:

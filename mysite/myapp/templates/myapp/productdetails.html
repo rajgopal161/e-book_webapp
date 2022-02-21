@@ -9,16 +9,28 @@
 
         {% block body %}
         <div>
-        <h4> These are the details of the book you selected </h4> 
+        <h4> Details of the book you selected </h4> 
         <img width="300" height="400" src="{{ book.image.url }}"> <br>
         </div>
         <div id="bookdtls">
         <b>Book Name : </b> {{book.Name}} <br> <br>
         <b>Book Desciption : </b> {{book.Desc}} <br> <br>
-        <b>Price : </b> <h4> ₹{{book.Price}}/- </h4> <br> <br>
-        <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> Add to cart <br> </a>
+        <b>Price : </b> <h4> ₹{{book.Price}}/- </h4>
+        {% if request.user.is_authenticated %}
+        <form action="add_cart" method="POST">
+            {% csrf_token %}
+            <input type="text" name="bookid" value="{{book.id}}" hidden>
+            <input type="text" value="{{request.user.id}}" hidden> <br> <br>
+            <input class="btn btn-warning" type="submit" value="Add to cart">  <br>
+        </form>
+        <br>
         <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> BuyNow <br> </a>
+        {% else %}
+        <br>
+        <b>Login to buy this book</b>
+        {% endif %}
         </div>
+        
         {% endblock %}
 
         

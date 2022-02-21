@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from myapp import views
 from account import views
+from cartmgmt import views
 from django.conf.urls.static import static
 from .import settings
 
@@ -24,5 +25,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include('myapp.urls')),
     path('', include('account.urls')),
+    path('', include('cartmgmt.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
