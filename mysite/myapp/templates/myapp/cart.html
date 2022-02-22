@@ -9,6 +9,25 @@
         {% block body %}
         <h2>Cart Page </h2> 
         
+
+        <table class="Table">
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            {% for book in books %}
+            <tbody>
+                <tr>
+                    <td>Sno.</td>
+                    <td>{{book.Name}}</td>
+                    <td>{{book.Price}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         {% endblock %}
     </body>
 

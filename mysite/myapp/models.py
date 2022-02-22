@@ -14,3 +14,6 @@ class Book(models.Model):
     Price = models.IntegerField()
     image = models.ImageField(default="default.png", upload_to="book_images/")
 
+    @staticmethod
+    def get_book_by_id(ids):
+        return Book.objects.filter(id__in = ids)

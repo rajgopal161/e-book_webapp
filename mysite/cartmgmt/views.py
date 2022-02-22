@@ -25,5 +25,7 @@ def add_cart(request, book_name):
     return redirect('/products/' )
 
 def cart(request):
-    print(request.session.get('cart'))
-    return render(request, 'myapp/cart.html')
+    ids = list(request.session.get('cart').keys())
+    books = Book.get_book_by_id(ids)
+    print(books)
+    return render(request, 'myapp/cart.html', {'books':books})
