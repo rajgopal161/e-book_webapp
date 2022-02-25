@@ -1,5 +1,6 @@
 {% extends 'myapp/base.html' %}
 
+{% load cart %}
 <html>
     <head>
         
@@ -7,27 +8,53 @@
     </head>
     <body>
         {% block body %}
-        <h2>Cart Page </h2> 
+         
         
-
-        <table class="Table">
-            <thead>
-                <tr>
-                    <th>
-
-                    </th>
-                </tr>
-            </thead>
-            {% for book in books %}
-            <tbody>
-                <tr>
-                    <td>Sno.</td>
-                    <td>{{book.Name}}</td>
-                    <td>{{book.Price}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="container">
+            <div class="border-rounded p-4 m-4">
+                <p class="display-4 pl-4 ml-4">Your Cart</p>
+                <hr>
+                <table class="Table">
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Book Name</th>
+                            
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    {% for book in books %}
+                    <tbody>
+                        <tr>
+                            <td><img style="height: 80px; width: 60px" class="" src="{{book.image.url}}" alt=""> </td>
+                            <td>{{book.Name}}</td>
+                            
+                            <td>{{book|cart_quantity:request.session.cart}}</td>
+                            <td><b>₹{{book.Price}}/-</b></td>
+                            <td><b>₹{{book|book_total:request.session.cart}}/-</b></td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                    <tfoot>
+                        
+                        <tr>
+                            <th colspan="2"></th>
+                            <th colspan="2">Total</th>
+                            <th><b>₹{{books|total_cart_price:request.session.cart}}/-</b></th>
+                            
+                        </tr>
+                    </tfoot>
+                </table>
+                <hr>
+                <div class="m-3 p-3">
+                    <a href="#" class="btn btn-outline-info border-rounded col-lg-3 float-right">CheckOut</a>
+                </div>
+            </div>
+        </div>
         {% endblock %}
     </body>
 
