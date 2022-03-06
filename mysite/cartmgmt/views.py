@@ -55,7 +55,10 @@ def inc_dec(request):
             if inc:
                 cart[product] = quantity + 1
             elif dec:
-                cart[product] = quantity - 1
+                if quantity <= 1:
+                    cart[product] = 1
+                else:
+                    cart[product] = quantity - 1
     
     request.session['cart'] = cart
     print(request.session['cart'])
