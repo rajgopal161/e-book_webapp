@@ -41,3 +41,22 @@ def remove_item(request):
     request.session['cart'] = cart
     print(request.session['cart'])
     return redirect('/cart/' )
+
+def inc_dec(request):
+    inc = request.POST.get('inc')
+    dec = request.POST.get('dec')
+    product = request.POST.get('bookid')
+    cart = request.session.get('cart')
+    if cart:
+        quantity = cart.get(product)
+        
+        if quantity>0:
+            print(quantity)
+            if inc:
+                cart[product] = quantity + 1
+            elif dec:
+                cart[product] = quantity - 1
+    
+    request.session['cart'] = cart
+    print(request.session['cart'])
+    return redirect('/cart/' )

@@ -36,16 +36,19 @@
                             
                             
                             <td>
-                                <div class="btn-group" >
+                                <form action='inc_dec', method="POST">
+                                    {% csrf_token %}
+                                <div class="row no-gutters" >
                                     
-
-                                    <input style="height:25px; width: 25px; border-radius: 50%;" type="submit" value=" - " class="btn btn-block btn-secondary">
+                                    <input hidden type="text" value="{{book.id}}" name="bookid">
+                                    <input style="height:25px; width: 25px; border-radius: 50%;" type="submit" value="-" name="dec" class="btn btn-block btn-secondary">
                                     
                                     <label for="qty"> {{book|cart_quantity:request.session.cart}} </label>
                                      
-                                    <input style="height:25px; width: 25px; border-radius: 50%;" type="submit" value=" + " class="btn btn-block btn-secondary">
+                                    <input style="height:25px; width: 25px; border-radius: 50%;" type="submit" value="+" name="inc" class="btn btn-block btn-secondary">
                                     
                                 </div>
+                                </form>
                             </td>
                             
                             <td><form action='remove_item', method="POST">
