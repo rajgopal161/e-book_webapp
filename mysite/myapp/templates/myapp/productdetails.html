@@ -1,4 +1,6 @@
 {% extends 'myapp/base.html' %}
+
+{% load cart %}
 <html>
     <head>
         
@@ -16,7 +18,7 @@
         <b>Book Name : </b> {{book.Name}} <br> <br>
         <b>Book Desciption : </b> {{book.Desc}} <br> <br>
         <b>Price : </b> <h4> ₹{{book.Price}}/- </h4>
-        {% if request.user.is_authenticated %}
+        {% if request.user.is_authenticated %}   
         <form action="add_cart" method="POST">
             {% csrf_token %}
             <input type="text" name="bookid" value="{{book.id}}" hidden>

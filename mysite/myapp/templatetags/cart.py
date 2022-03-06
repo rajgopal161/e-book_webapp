@@ -3,6 +3,14 @@ from django import template
 
 register = template.Library()
 
+@register.filter(name="is_in_cart")
+def is_in_cart(book_list, cart):
+    # keys = cart.keys()
+    # for id in keys:
+    #     if id == book_list.id:
+    #         return True
+    return False
+
 @register.filter(name='cart_quantity')
 def cart_quantity(books, cart):
     keys = cart.keys()

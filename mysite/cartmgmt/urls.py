@@ -9,6 +9,7 @@ app_name = "cartmgmt"
 urlpatterns = [
     path('products/<str:book_name>/add_cart',views.add_cart, name="add_cart"),
     path('cart/',views.cart, name="cart"),
+    path('cart/remove_item',views.remove_item, name="remove_item"),
     # path('register/register_user',views.register_user, name="register_user"),
     # path('login/',views.loginu, name="login"),
     # path('login/login_user',views.loginuser, name="login_user"),

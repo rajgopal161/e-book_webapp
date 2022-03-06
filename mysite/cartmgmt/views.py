@@ -27,5 +27,17 @@ def add_cart(request, book_name):
 def cart(request):
     ids = list(request.session.get('cart').keys())
     books = Book.get_book_by_id(ids)
-    print(books)
+    
     return render(request, 'myapp/cart.html', {'books':books})
+
+
+def remove_item(request):
+    product = request.POST.get('bookid')
+    cart = request.session.get('cart')
+    if product in cart:
+        cart.pop(product)
+        print(cart)
+
+    request.session['cart'] = cart
+    print(request.session['cart'])
+    return redirect('/cart/' )

@@ -19,9 +19,10 @@ def products(request):
     return render(request,'myapp/products.html', context)
 
 def product_detail(request, book_name):
+    book_list = Book.objects.all()
     book = Book.objects.get(Name=book_name)
     context = {
-        'book' : book
+        'book' : book, 'book_list': book_list
     }
     return render(request,'myapp/productdetails.html', context)
 
