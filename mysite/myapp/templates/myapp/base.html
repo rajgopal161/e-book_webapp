@@ -28,7 +28,8 @@
             <a class="active" href=""></a>
             <a href=""></a>
             <a href=""></a>
-            <form action='search'> 
+            <form action='search' method="POST">
+                {% csrf_token %}
                 <input type="text" name='search' placeholder="Search.." size="20">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>

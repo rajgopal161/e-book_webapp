@@ -70,13 +70,20 @@ def searchhh(request):
 
 
 def search(request):
-    if request.method == 'GET':
-        book_name = request.GET.get('search')
+    book_list = Book.objects.all()
+    if request.method == 'POST':
+        book_name = request.POST.get('search')
+        
         try:
-            book = Book.objects.get(Name=book_name)
-            context={
-                'book': book
-            }
+            books = Book.objects.filter(Name__icontains=book_name).all()
+            print(books)
+            if books:
+                for bk in books:
+                    book = Book.objects.get(Name=bk)
+                    print(book)
+                    context={
+                        'book': book
+                    }
         except Book.DoesNotExist:
             context=None  
             

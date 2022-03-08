@@ -17,3 +17,7 @@ class Book(models.Model):
     @staticmethod
     def get_book_by_id(ids):
         return Book.objects.filter(id__in = ids)
+
+    @staticmethod
+    def get_book_by_name(name):
+        return Book.objects.filter(Name_icontains = name)

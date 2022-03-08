@@ -11,27 +11,30 @@
         
         
         {% block body %}
-
-        {% if book.Name %}
-
-        <div class="col-md-3">
-            <div class="card">
-                <img width="100" height="350" src="{{book.image.url}}" class="card-img-top" alt="">
-                <div class="card-body">
-                    <p style="font-size: 16px; font-family: Arial" class="card-title">{{book.Name}}</p>
-                    <p style="font-size: 18px;" class="card-text"><b>₹{{book.Price}}/-</b></p>
-                    <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> View Details <br> </a>
-                    
+        <div class="container">
+            <div class="row">
+                {% if book %}
+                
+                <div class="col-md-3">
+                    <div class="card">
+                        <img width="100" height="350" src="{{book.image.url}}" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <p style="font-size: 16px; font-family: Arial" class="card-title">{{book.Name}}</p>
+                            <p style="font-size: 18px;" class="card-text"><b>₹{{book.Price}}/-</b></p>
+                            <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> View Details <br> </a>
+                            
+                        </div>
+                    </div>
                 </div>
+
+                {% else %}
+                Oops!!
+                <h4> Book Not Found!!!</h4> 
+                
+                {% endif %}
+                {% endblock %}
             </div>
         </div>
-
-        {% else %}
-        Oops!!
-        <h4> Book Not Found!!!</h4> 
-        
-        {% endif %}
-        {% endblock %}
     </body>
 
 </html>
