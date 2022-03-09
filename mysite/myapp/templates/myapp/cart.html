@@ -31,7 +31,7 @@
                     {% for book in books %}
                     <tbody>
                         <tr>
-                            <td><img style="height: 80px; width: 60px" class="" src="{{book.image.url}}" alt=""> </td>
+                            <td><a href="{% url 'myapp:proddetail' book.Name %}"><img style="height: 80px; width: 60px" class="" src="{{book.image.url}}" alt=""></a> </td>
                             <td>{{book.Name}}</td>
                             
                             

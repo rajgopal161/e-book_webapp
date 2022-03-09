@@ -84,6 +84,9 @@ def search(request):
                     context={
                         'book': book
                     }
+            else:
+                Book.DoesNotExist
+                context=None
         except Book.DoesNotExist:
             context=None  
             
