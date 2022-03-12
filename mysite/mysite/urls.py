@@ -18,6 +18,7 @@ from django.urls import path, include
 from myapp import views
 from account import views
 from cartmgmt import views
+from paymentgateway import views
 from django.conf.urls.static import static
 from .import settings
 
@@ -26,5 +27,6 @@ urlpatterns = [
     path("", include('myapp.urls')),
     path('', include('account.urls')),
     path('', include('cartmgmt.urls')),
+    path('', include('paymentgateway.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

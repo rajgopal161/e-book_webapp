@@ -16,6 +16,7 @@ def products(request):
     context = {
         'book_list': book_list
     }
+    print(book_list)
     return render(request,'myapp/products.html', context)
 
 def product_detail(request, book_name):
@@ -77,16 +78,11 @@ def search(request):
         try:
             books = Book.objects.filter(Name__icontains=book_name).all()
             print(books)
-            if books:
-                for bk in books:
-                    book = Book.objects.get(Name=bk)
-                    print(book)
-                    context={
-                        'book': book
+
+            context={
+                        'books': books
                     }
-            else:
-                Book.DoesNotExist
-                context=None
+            
         except Book.DoesNotExist:
             context=None  
             

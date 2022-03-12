@@ -1,0 +1,51 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'myapp/styleLR.css' %}"/>  
+
+    </head>
+    <body>
+        
+        <div id="carddtls">
+			<form  action='paymentdtls' method='POST' > 
+            	{% csrf_token %}
+				<h1>Credit/Debit Card</h1> 
+				<p> 
+					<label for="carddtl" class="cd" data-icon="u" > Credit/Debit Card </label> <br>
+					<input id="carddtl" name="carddtl" required="required" type="text" placeholder="**************** "/>
+				</p>
+                <p>
+                    <label for="cardexp">Card Expires on</label>
+                    <input type="month" id="cardexp" name="cardexp" min="2022-03" required="required"> 
+                    
+                </p>
+				<p> 
+					<label for="cardcvv" class="cardcvv" data-icon="p"> Your CVV </label> <br>
+					<input id="cardcvv" name="cardcvv" required="required" type="password" placeholder="***" /> 
+				</p>
+				<p> 
+					<label for="carduname" class="carduname" data-icon="p"> Your Name on Card </label> <br>
+					<input id="carduname" name="carduname" required="required" type="text" placeholder="eg. Alexa" /> 
+				</p>
+				<p class="payment button"> 
+					<input type="submit" /> 
+				</p>
+				<p class="change_link">
+					Want to add more products ?
+					<a href="{% url 'myapp:products' %}">CickHere</a>
+				</p>
+			</form>
+		</div>
+
+		<div class="ErrorMessages">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+        
+
+        
+    </body>
+
+</html>
