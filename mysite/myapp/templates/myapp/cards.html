@@ -13,7 +13,7 @@
 				<h1>Credit/Debit Card</h1> 
 				<p> 
 					<label for="carddtl" class="cd" data-icon="u" > Credit/Debit Card </label> <br>
-					<input id="carddtl" name="carddtl" required="required" type="text" placeholder="**************** "/>
+					<input id="carddtl" name="carddtl" required="required" type="text" placeholder="1234 **** **** 0000 " maxlength="16" pattern="[0-9]+" />
 				</p>
                 <p>
                     <label for="cardexp">Card Expires on</label>
@@ -22,7 +22,7 @@
                 </p>
 				<p> 
 					<label for="cardcvv" class="cardcvv" data-icon="p"> Your CVV </label> <br>
-					<input id="cardcvv" name="cardcvv" required="required" type="password" placeholder="***" /> 
+					<input id="cardcvv" name="cardcvv" required="required" type="password" placeholder="***" maxlength="3" /> 
 				</p>
 				<p> 
 					<label for="carduname" class="carduname" data-icon="p"> Your Name on Card </label> <br>
