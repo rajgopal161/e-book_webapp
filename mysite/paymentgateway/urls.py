@@ -4,6 +4,7 @@ from paymentgateway import views
 app_name = "paymentgateway"
 
 urlpatterns = [
+    path('payment_card',views.card, name="card"),
     path('payment_details',views.payment_details, name="paymentdtls"),
     # path('cart/',views.cart, name="cart"),
     # path('cart/remove_item',views.remove_item, name="remove_item"),
