@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+
+{% load cart %}
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        {% block body %}
+        <h4>Thank you for shopping with us!! :) </h4> <br>
+        <h5>Your order has been confirmed, product details are sent to your email</h5>
+
+        <br>
+        <a class="btn btn-warning" href="{% url 'myapp:products' %}">Continue Shopping </a>
+        <br>
+        <br>
+
+        <p class="display-4 pl-4 ml-4">Items Purchased</p>
+        <hr>
+        <table class="Table" >
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Book Name</th>
+                    
+                    <th>Quantity</th>
+                    
+                    <th>Total</th>
+                </tr>
+            </thead>
+            
+            {% for book in books %}
+            <tbody>
+                <tr>
+                    <td><a href="{% url 'myapp:proddetail' book.Name %}"><img style="height: 80px; width: 60px" class="" src="{{book.image.url}}" alt=""></a> </td>
+                    <td>{{book.Name}}</td>
+                    <td><label for="qty"> {{book|cart_quantity:request.session.cart}} </label></td> 
+                    <td><b>₹{{book|book_total:request.session.cart}}/-</b></td>   
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+        {% endblock %}
+    </body>
+
+</html>

@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from myapp.models import Book
 from django.contrib import messages
+from django.contrib.auth.models import User
+from django.conf import settings
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -33,9 +36,23 @@ def payment_details(request):
     net_sum = 0
     net_sum = odd_sum + even_sum
     if net_sum % 10 == 0:
-        messages.info(request,"ThankYou!!")
+
+        ids = list(request.session.get('cart').keys())
+        books = Book.get_book_by_id(ids)
+        bk = list(books)
+
+        #Sending email after successful payment.
+
+        # subject = 'Thank You for shopping with E-commerce Book Store | Order Details'
+        # message = f'Hi {request.user.username}, Thank You for shopping with E-commerce Book Store \nPlease find your order details \n {bk}'
+        # email_from = settings.EMAIL_HOST_USER
+        # recipient_list = [request.user.email, ]
+        # send_mail( subject, message, email_from, recipient_list )
+        # print("Email Sent Succesfully!!")
+        
+        
+        return render(request, "myapp/confirm.html",{'books':books})
     else:
         messages.info(request,"Please enter valid Debit/Credit card")
 
-    #messages.info(request,"Please enter valid Debit/Credit card")
     return render(request, "myapp/cards.html")
