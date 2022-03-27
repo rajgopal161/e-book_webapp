@@ -25,10 +25,15 @@ def add_cart(request, book_name):
     return redirect('/products/#'+ product )
 
 def cart(request):
-    ids = list(request.session.get('cart').keys())
-    books = Book.get_book_by_id(ids)
+    if request.session.get('cart') is None:
+        cart = {}
+        request.session['cart'] = cart
+        return render(request, 'myapp/cart.html')
+    else:
+        ids = list(request.session.get('cart'))
+        books = Book.get_book_by_id(ids)
     
-    return render(request, 'myapp/cart.html', {'books':books})
+        return render(request, 'myapp/cart.html', {'books':books})
 
 
 def remove_item(request):
