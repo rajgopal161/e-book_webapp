@@ -1,0 +1,40 @@
+{% extends 'myapp/base.html' %}
+
+<html>
+    <head>
+        
+
+    </head>
+    <body>
+        {% block body %}
+        
+        <form  action="updatepswd" method="POST">
+            {% csrf_token %} 
+                <p> 
+                    <label for="oldpassword" class="oldpasswd">Old password </label> <br>
+                    <input id="oldpassword" name="oldpassword" required="required" type="password" placeholder="eg. X8df!90EO"/>
+                </p>
+                <p> 
+                    <label for="newpassword" class="newyoupasswd">New password </label> <br>
+                    <input id="newpassword" name="newpassword" required="required" type="password" placeholder="eg. OE09!fd8X"/>
+                </p>
+                <p> 
+                    <label for="password_confirm" class="youpasswd">Please confirm your password </label> <br>
+                    <input id="password_confirm" name="password_confirm" required="required" type="password" placeholder="eg. OE09!fd8X"/>
+                </p>
+                <p class="Updatepswd button"> 
+                    <input type="submit" value="Update"/> 
+                </p>
+
+            </form>
+
+            <div class="ErrorMessages">
+                {% for message in messages %}
+                <h4>{{message}}</h4>
+                {% endfor %}
+            </div>
+        
+        {% endblock %}
+    </body>
+
+</html>

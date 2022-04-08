@@ -11,6 +11,9 @@
         <b>FirstName : </b> {{request.user.first_name}} <br> <br>
         <b>UserName  : </b> {{request.user.username}} <br> <br>
         <b>UserEmail : </b> {{request.user.email}} <br> <br>
+        <form>
+        <a href="{% url 'account:update_password' %}"><input type="button" value="Update Password"></a>
+        </form>
         {% endblock %}
     </body>
 

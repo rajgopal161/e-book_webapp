@@ -16,7 +16,6 @@ def products(request):
     context = {
         'book_list': book_list
     }
-    print(book_list)
     return render(request,'myapp/products.html', context)
 
 def product_detail(request, book_name):

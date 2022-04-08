@@ -117,3 +117,35 @@ def userdtls(request):
 
 def contactus(request):
     return render(request, 'myapp/contactus.html')
+
+def passupdate(request):
+    return render(request, 'myapp/updatepass.html')
+
+
+def updatepswd(request):
+    if request.method == 'POST':
+        oldpass = request.POST['oldpassword']
+        newpass = request.POST['newpassword']
+        confpass = request.POST['password_confirm']
+
+        username = request.user.username
+        
+        user = authenticate(request, username=username, password=oldpass)
+    
+        if user:
+            if newpass == confpass:
+                u = User.objects.get(username=username)
+                u.set_password(newpass)
+                print("New password saved")
+                u.save()
+                messages.info(request,"Password updated. Your session is logged out, Please login again")
+                return redirect('/update_password')
+            else:
+                messages.info(request,"NewPassword & ConfirmedPassword not matching")
+                return redirect('/update_password')
+        
+        else:
+            messages.info(request,"oldPassword entered is incorrect")
+            return redirect('/update_password')
+        
+         
