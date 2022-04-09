@@ -136,8 +136,17 @@ def updatepswd(request):
             if newpass == confpass:
                 u = User.objects.get(username=username)
                 u.set_password(newpass)
-                print("New password saved")
                 u.save()
+
+                #Sending email after successful updation.
+
+                # subject = 'Attetion! Your E-commerce Book Store account password has been changed'
+                # message = f'Hi {user.username}, Your E-commerce Book Store account password has been changed'
+                # email_from = settings.EMAIL_HOST_USER
+                # recipient_list = [user.email, ]
+                # send_mail( subject, message, email_from, recipient_list )
+                # print("Email Sent Succesfully!!")
+                
                 messages.info(request,"Password updated. Your session is logged out, Please login again")
                 return redirect('/update_password')
             else:
@@ -145,7 +154,7 @@ def updatepswd(request):
                 return redirect('/update_password')
         
         else:
-            messages.info(request,"oldPassword entered is incorrect")
+            messages.info(request,"OldPassword entered is incorrect")
             return redirect('/update_password')
         
          

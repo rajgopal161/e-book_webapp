@@ -26,7 +26,7 @@
             <input class="btn btn-warning" type="submit" value="Add to cart">  <br>
         </form>
         <br>
-        <a class="btn btn-warning" href="{% url 'myapp:proddetail' book.Name %}"> BuyNow <br> </a>
+        <a class="btn btn-warning" href="{% url 'paymentgateway:card' %}"> BuyNow <br> </a>
         {% else %}
         <br>
         <b>Login to buy this book</b>
